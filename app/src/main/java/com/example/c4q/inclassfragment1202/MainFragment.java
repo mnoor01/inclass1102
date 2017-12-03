@@ -43,6 +43,7 @@ private EditText eText;
                 Bundle bundle= new Bundle();
                 bundle.putString("hey",textFromEditText);//we use the name the information that is being passed
                 fragmentUno.setArguments(bundle);//this sends the data to fragmentuno
+                fragmentTransaction.setCustomAnimations(R.anim.enter,R.anim.exit,R.anim.pop_enter,R.anim.pop_exit);
                 fragmentTransaction.replace(R.id.frag_container,fragmentUno);
                 fragmentTransaction.addToBackStack("next_fragment");
                 fragmentTransaction.commit();

@@ -18,6 +18,7 @@ public class MainActivity extends AppCompatActivity {
         //fragment transaction declares the fragments and helps add delete and etc.
         //we will replace the container with the fragment it self.
         //rootView needs to have access to things it is going to inflate
+
         fragmentTransaction.replace(R.id.frag_container, mainFragment);
         fragmentTransaction.commit();
     }
