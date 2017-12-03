@@ -10,6 +10,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.EditText;
+import android.widget.TextView;
 
 
 /**
@@ -17,6 +19,7 @@ import android.widget.Button;
  */
 public class MainFragment extends Fragment {
 private View nuevoView;
+private EditText eText;
 
     public MainFragment() {
         // Required empty public constructor
@@ -28,6 +31,7 @@ private View nuevoView;
                              Bundle savedInstanceState) {
         nuevoView=inflater.inflate(R.layout.fragment_main, container, false);
         Button button=(Button) nuevoView.findViewById(R.id.bt1);
+        eText=(EditText) nuevoView.findViewById(R.id.etxt01);
         // Inflate the layout for this fragment
         button.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -35,8 +39,9 @@ private View nuevoView;
            FragmentUno fragmentUno= new FragmentUno();
                 FragmentManager fragmentManager=getActivity().getSupportFragmentManager();
                 FragmentTransaction fragmentTransaction=fragmentManager.beginTransaction();
+                String textFromEditText= eText.getText().toString();
                 Bundle bundle= new Bundle();
-                bundle.putString("hey","nice");
+                bundle.putString("hey",textFromEditText);//we use the name the information that is being passed
                 fragmentUno.setArguments(bundle);//this sends the data to fragmentuno
                 fragmentTransaction.replace(R.id.frag_container,fragmentUno);
                 fragmentTransaction.addToBackStack("next_fragment");
